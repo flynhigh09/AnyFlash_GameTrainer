@@ -20,7 +20,7 @@ namespace AnyFlash_GameTrainer
 
         private void LoadGame_Click(object sender, EventArgs e)
         {
-            url = game_form.axShockwaveFlash1.Movie = GameTextBox.Text;
+            url = game_form.xShock_flashGame.Movie = GameTextBox.Text;
 
             Game.Game_ = url;
 

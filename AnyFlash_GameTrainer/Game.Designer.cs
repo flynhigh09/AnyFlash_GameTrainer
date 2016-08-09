@@ -32,16 +32,18 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.startGame = new System.Windows.Forms.ToolStripMenuItem();
+            this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.Hack_button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.VariableBox = new System.Windows.Forms.TextBox();
             this.ValueBox = new System.Windows.Forms.TextBox();
-            this.axShockwaveFlash1 = new AxShockwaveFlashObjects.AxShockwaveFlash();
-            this.pauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xShock_flashGame = new AxShockwaveFlashObjects.AxShockwaveFlash();
+            this.urltoolstrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadSwf = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xShock_flashGame)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -51,7 +53,7 @@
             this.toolStripDropDownButton2});
             this.statusStrip1.Location = new System.Drawing.Point(-1, -1);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(55, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(86, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -69,10 +71,20 @@
             // 
             // startGame
             // 
+            this.startGame.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.urltoolstrip,
+            this.loadSwf});
             this.startGame.Name = "startGame";
             this.startGame.Size = new System.Drawing.Size(152, 22);
             this.startGame.Text = "Start Game";
             this.startGame.Click += new System.EventHandler(this.startGame_Click);
+            // 
+            // pauseToolStripMenuItem
+            // 
+            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
+            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pauseToolStripMenuItem.Text = "Pause";
+            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
             // 
             // exitStrip
             // 
@@ -115,6 +127,7 @@
             this.VariableBox.Name = "VariableBox";
             this.VariableBox.Size = new System.Drawing.Size(193, 20);
             this.VariableBox.TabIndex = 5;
+            this.VariableBox.Text = "_root.";
             // 
             // ValueBox
             // 
@@ -123,28 +136,35 @@
             this.ValueBox.Size = new System.Drawing.Size(131, 20);
             this.ValueBox.TabIndex = 6;
             // 
-            // axShockwaveFlash1
+            // xShock_flashGame
             // 
-            this.axShockwaveFlash1.Enabled = true;
-            this.axShockwaveFlash1.Location = new System.Drawing.Point(-1, 30);
-            this.axShockwaveFlash1.Name = "axShockwaveFlash1";
-            this.axShockwaveFlash1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axShockwaveFlash1.OcxState")));
-            this.axShockwaveFlash1.Size = new System.Drawing.Size(809, 510);
-            this.axShockwaveFlash1.TabIndex = 8;
+            this.xShock_flashGame.Enabled = true;
+            this.xShock_flashGame.Location = new System.Drawing.Point(-1, 30);
+            this.xShock_flashGame.Name = "xShock_flashGame";
+            this.xShock_flashGame.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("xShock_flashGame.OcxState")));
+            this.xShock_flashGame.Size = new System.Drawing.Size(809, 510);
+            this.xShock_flashGame.TabIndex = 8;
             // 
-            // pauseToolStripMenuItem
+            // urltoolstrip
             // 
-            this.pauseToolStripMenuItem.Name = "pauseToolStripMenuItem";
-            this.pauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.pauseToolStripMenuItem.Text = "Pause";
-            this.pauseToolStripMenuItem.Click += new System.EventHandler(this.pauseToolStripMenuItem_Click);
+            this.urltoolstrip.Name = "urltoolstrip";
+            this.urltoolstrip.Size = new System.Drawing.Size(152, 22);
+            this.urltoolstrip.Text = "Url";
+            this.urltoolstrip.Click += new System.EventHandler(this.urlToolStripMenuItem_Click);
+            // 
+            // loadSwf
+            // 
+            this.loadSwf.Name = "loadSwf";
+            this.loadSwf.Size = new System.Drawing.Size(152, 22);
+            this.loadSwf.Text = "Load Swf";
+            this.loadSwf.Click += new System.EventHandler(this.loadSwf_Click);
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 539);
-            this.Controls.Add(this.axShockwaveFlash1);
+            this.Controls.Add(this.xShock_flashGame);
             this.Controls.Add(this.ValueBox);
             this.Controls.Add(this.VariableBox);
             this.Controls.Add(this.label2);
@@ -156,7 +176,7 @@
             this.Load += new System.EventHandler(this.Game_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axShockwaveFlash1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xShock_flashGame)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,6 +194,8 @@
         private System.Windows.Forms.TextBox VariableBox;
         private System.Windows.Forms.TextBox ValueBox;
         private System.Windows.Forms.ToolStripMenuItem pauseToolStripMenuItem;
-        public AxShockwaveFlashObjects.AxShockwaveFlash axShockwaveFlash1;
+        public AxShockwaveFlashObjects.AxShockwaveFlash xShock_flashGame;
+        private System.Windows.Forms.ToolStripMenuItem urltoolstrip;
+        private System.Windows.Forms.ToolStripMenuItem loadSwf;
     }
 }

@@ -19,10 +19,34 @@ namespace AnyFlash_GameTrainer
 
         private void Game_Load(object sender, EventArgs e)
         {
-
+        }
+        private void startGame_Click(object sender, EventArgs e)
+        {
         }
 
-        private void startGame_Click(object sender, EventArgs e)
+        private void Hack_button_Click(object sender, EventArgs e)
+        {
+            xShock_flashGame.SetVariable(VariableBox.Text, ValueBox.Text);
+
+            this.Text = "Done";
+        }
+
+   
+        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            xShock_flashGame.StopPlay();
+
+            this.Text = "Paused";
+        }
+
+        private void exitStrip_Click(object sender, EventArgs e)
+        {
+            xShock_flashGame.Stop();
+
+            this.Text = "Game Closed";
+        }
+
+        private void urlToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Game_Pick gmp = new Game_Pick();
 
@@ -31,22 +55,18 @@ namespace AnyFlash_GameTrainer
             this.Text = Game_;
         }
 
-        private void pauseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            axShockwaveFlash1.StopPlay();
-            this.Text = "Paused";
-        }
 
-        private void exitStrip_Click(object sender, EventArgs e)
+        private void loadSwf_Click(object sender, EventArgs e)
         {
-            axShockwaveFlash1.Stop();
-            this.Text = "Game Closed";
-        }
-
-        private void Hack_button_Click(object sender, EventArgs e)
-        {
-            axShockwaveFlash1.SetVariable(VariableBox.Text, ValueBox.Text);
-            this.Text = "Done";
+            OpenFileDialog openfile = new OpenFileDialog();
+            openfile.Filter = ("Swf (*.swf)|*.swf");
+            DialogResult res = openfile.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                 Game_= openfile.FileName;
+                this.Text = Game_;
+                xShock_flashGame.Movie = Game_;
+            }
         }
     }
 }
